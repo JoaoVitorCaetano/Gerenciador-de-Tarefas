@@ -151,3 +151,8 @@ footer {
     color: #102f5e;
     font-weight: bold;
 }
+
+#icon{
+    pointers-event: none;
+}
+    
