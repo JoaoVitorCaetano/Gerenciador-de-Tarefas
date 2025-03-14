@@ -16,12 +16,12 @@ function salvarTask() {
 
             const doneBtn = document.createElement("button")
             doneBtn.classList.add("finish-task")
-            doneBtn.innerHTML = '<i class="fa-solid fa-check"></i>'
+            doneBtn.innerHTML = '<i class="fa-solid fa-check" id="icon"></i>'
             tasks.appendChild(doneBtn)
 
             const deleteBtn = document.createElement("button")
             deleteBtn.classList.add("remove-task")
-            deleteBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>'
+            deleteBtn.innerHTML = '<i class="fa-solid fa-xmark" id="icon"></i>'
             tasks.appendChild(deleteBtn)
 
             taskList.appendChild(tasks)
@@ -40,7 +40,7 @@ document.addEventListener('click', (e) => {
         console.log('remove')
     }
 
-    if (elementoClicado.classList.contains('finish-task')) {
+    if (elementoClicado.classList.contains('finish-task') && paiDoElemento.classList.contains('done') {
         paiDoElemento.classList.toggle("done");
         console.log('done')
     }
