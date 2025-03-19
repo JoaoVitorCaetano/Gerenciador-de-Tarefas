@@ -7,6 +7,8 @@ const popup = document.querySelector(".popup")
 const select = document.querySelector("#dificuldade")
 const taskDateInput = document.querySelector("#taskDate")
 const Data = document.querySelector(".currentDate")
+const filterDificuldade = document.querySelector("#dificuldade-filter")
+const filterData = document.querySelector("#data-filter")
 
 const date = new Date()
 const dataAtual = date.toLocaleDateString("pt-BR", {
@@ -123,3 +125,31 @@ addTaskBtn.addEventListener('click', function() {
     }
 
 })
+
+function filterTasks() {
+
+    const tasks = document.querySelectorAll(".tasks");
+
+    if(filterDificuldade.value === "Todas"){
+        tasks.forEach(task => {
+            task.style.display = "flex";
+        });
+        return;
+    } else{
+        tasks.forEach(task => {
+            const difficultySpan = task.querySelector(".difficulty-badge");
+            const isCompleted = task.classList.contains("done");
+            
+            if (difficultySpan && !isCompleted) {
+                const difficulty = difficultySpan.innerText;
+        
+                if (difficulty === filterDificuldade.value) {
+                    task.style.display = "flex";
+                }else {
+                    task.style.display = "none";
+                }
+            }   
+        });
+    }
+
+}
