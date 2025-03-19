@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Tarefas</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     
+
+    <div class="currentDate">
+
+    </div>
     <section>
 
         <div class="main-container">
 
             <h1>Tarefas</h1>
-
+            
             <div class="divider">
             </div>
             
@@ -22,7 +27,7 @@
                 <p>Adicione sua tarefa:</p>
                 <div class="form-add-task">
                     <input type="text" name="add-task" id="txt1">
-                    <i class="fa-solid fa-plus" onclick="salvarTask()"></i>
+                    <i class="fa-solid fa-plus"  id="addTaskBtn"></i>
                 </div>
                 
             </div>
@@ -34,17 +39,34 @@
 
             </div>
             
-
         </div>
         
     </section>
 
-    <footer>
-        <p>&copy; João Vitor Caetano</p>
-    </footer>
 
-
-    <script src="script.js"></script>
+    <div class="popup">
+        <div class="popup-container">
+            <h3 id="nameTask"></h3>
+    
+            <div class="dificult">
+                <label for="dificuldade">Dificuldade:</label>
+                <select id="dificuldade" name="dificuldade" required>
+                <option value="">Selecione</option>
+                <option value="fácil">Fácil</option>
+                <option value="médio">Médio</option>
+                <option value="difícil">Difícil</option>
+            </select>
+            </div>
+            
+            <div class="date">
+                <p>Data de término:</p>
+                <input type="date" id="taskDate">
+            </div>
+            
+            <button class="confirm-btn" onclick="salvarTask()">Confirmar</button>
+        </div>
+    </div>
+    
     <script src="https://kit.fontawesome.com/743b65bc27.js" crossorigin="anonymous"></script>
 </body>
 </html>
