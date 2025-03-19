@@ -42,20 +42,17 @@ function salvarTask() {
         const dataAtual = new Date();
         dataAtual.setHours(0, 0, 0, 0) 
 
-        if (selectedDate < date) {
+        if (selectedDate < dataAtual) {
             alert("Essa data já passou")
             return;
         } else {
-            if (selectedDate) {
                 const dateSpan = document.createElement("p") 
                 dateSpan.classList.add("date-badge")
     
                 dateSpan.innerText = dataFormatada 
                 taskTitle.appendChild(dateSpan)
-            }
         }
 
-        
         const selectedDifficulty = select.value;
 
         if (selectedDifficulty) {
