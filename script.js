@@ -7,6 +7,11 @@ const popup = document.querySelector(".popup")
 const select = document.querySelector("#dificuldade")
 const taskDateInput = document.querySelector("#taskDate")
 const Data = document.querySelector(".currentDate")
+const filterPopup = document.querySelector(".filter-popup")
+const filterBtn = document.querySelector("#filterTaskBtn")
+const addFilterBtn = document.querySelector("#filterBtn")
+const filterDificuldade = document.querySelector("#dificuldade-filter")
+const closeFilterBtn = document.querySelector("#closeFilterBtn")
 
 const date = new Date()
 const dataAtual = date.toLocaleDateString("pt-BR", {
@@ -42,7 +47,10 @@ function salvarTask() {
         const dataAtual = new Date();
         dataAtual.setHours(0, 0, 0, 0) 
 
-        if (selectedDate < date) {
+        if (taskDateInput.value.length == 0) {
+            alert("Digite uma data válida")
+            return;
+        } else if (selectedDate < dataAtual) {
             alert("Essa data já passou")
             return;
         } else {
@@ -123,3 +131,39 @@ addTaskBtn.addEventListener('click', function() {
     }
 
 })
+
+
+filterBtn.addEventListener('click', function() {
+    filterPopup.style.display = "flex"
+})
+
+closeFilterBtn.addEventListener('click', function() {
+    filterPopup.style.display = "none"
+})
+
+function filterTasks() {
+    const tasks = document.querySelectorAll(".tasks");
+
+    if(filterDificuldade.value === "Todas"){
+        tasks.forEach(task => {
+            task.style.display = "flex";
+        });
+        return;
+    } else{
+        tasks.forEach(task => {
+            const difficultySpan = task.querySelector(".difficulty-badge");
+            const isCompleted = task.classList.contains("done");
+            
+            if (difficultySpan && !isCompleted) {
+                const difficulty = difficultySpan.innerText;
+        
+                if (difficulty === filterDificuldade.value) {
+                    task.style.display = "flex";
+                }else {
+                    task.style.display = "none";
+                }
+            }   
+        });
+    }
+
+}
