@@ -66,6 +66,8 @@ section {
     height: 40px;
     border-radius: 20px;
     padding: 10px;
+    position: relative;
+    left: 20px;
 }
 
 .add-task i {
@@ -77,6 +79,14 @@ section {
 .add-task i:hover {
     color: #3c5274;
     transform: scale(1.1);
+}
+
+#filterTaskBtn {
+    margin-left: 20px;
+}
+
+#addTaskBtn {
+    margin-left: 15px;
 }
 
 
@@ -255,3 +265,56 @@ button i {
     font-size: 12px;
     font-weight: normal;
 }
+
+.filter-popup {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.397);
+    margin-top: 100px;
+    display: none;
+}
+
+.filter-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-container i {
+    cursor: pointer;
+}
+
+.filter-container h2 {
+    color: rgb(131, 131, 131);
+    text-align: center;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+#dificuldade-filter {
+    position: relative;
+    top: -2px;
+}
+
+#dificuldade-filter {
+    width: 100px;
+    border-radius: 5px;
+    color: #021229;
+    border: solid 1px #021229;
+}
+
+#filterBtn {
+    height: 30px;
+}
+

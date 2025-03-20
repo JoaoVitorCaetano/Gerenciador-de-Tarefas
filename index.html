@@ -9,61 +9,85 @@
 </head>
 <body>
     
+    <div class="currentDate"></div> 
 
-    <div class="currentDate">
+    <div class="container">
+        <section>
 
-    </div>
-    <section>
+            <div class="main-container">
 
-        <div class="main-container">
+                <h1>Tarefas</h1>
+                
+                <div class="divider">
+                </div>
+                
 
-            <h1>Tarefas</h1>
-            
-            <div class="divider">
-            </div>
-            
+                <div class="add-task">
+                    <p>Adicione sua tarefa:</p>
+                    <div class="form-add-task">
+                        <input type="text" name="add-task" id="txt1">
+                        
+                        <i class="fa-solid fa-plus"  id="addTaskBtn"></i>
+                        <i class="fa-solid fa-filter" id="filterTaskBtn"></i>
+                        
+                    </div>
+                    
+                </div>
+        
+                <div class="divider"></div>
+        
 
-            <div class="add-task">
-                <p>Adicione sua tarefa:</p>
-                <div class="form-add-task">
-                    <input type="text" name="add-task" id="txt1">
-                    <i class="fa-solid fa-plus"  id="addTaskBtn"></i>
+                <div class="task-container">
+
                 </div>
                 
             </div>
-    
-            <div class="divider"></div>
-    
-
-            <div class="task-container">
-
-            </div>
             
-        </div>
+        </section>
+
+
+        <div class="popup">
+            <div class="popup-container">
+                <h3 id="nameTask"></h3>
         
-    </section>
-
-
-    <div class="popup">
-        <div class="popup-container">
-            <h3 id="nameTask"></h3>
-    
-            <div class="dificult">
-                <label for="dificuldade">Dificuldade:</label>
-                <select id="dificuldade" name="dificuldade" required>
-                <option value="">Selecione</option>
-                <option value="fácil">Fácil</option>
-                <option value="médio">Médio</option>
-                <option value="difícil">Difícil</option>
-            </select>
+                <div class="dificult">
+                    <label for="dificuldade">Dificuldade:</label>
+                    <select id="dificuldade" name="dificuldade" required>
+                    <option value="">Selecione</option>
+                    <option value="fácil">Fácil</option>
+                    <option value="médio">Médio</option>
+                    <option value="difícil">Difícil</option>
+                </select>
+                </div>
+                
+                <div class="date">
+                    <p>Data de término:</p>
+                    <input type="date" id="taskDate">
+                </div>
+                
+                <button class="confirm-btn" onclick="salvarTask()">Confirmar</button>
             </div>
-            
-            <div class="date">
-                <p>Data de término:</p>
-                <input type="date" id="taskDate">
+        </div>
+                
+        <div class="filter-popup">
+            <div class="filter-container">
+                <i class="fa-solid fa-xmark" id="closeFilterBtn"></i>
+                <h2>Filtrar Tarefas</h2>
+                <div class="divider">
+                </div>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <label for="dificuldade-filter">Dificuldade:</label>
+                        <select id="dificuldade-filter" name="dificuldade-filter">
+                            <option value="Todas">Todas</option>
+                            <option value="fácil">Fácil</option>
+                            <option value="médio">Médio</option>
+                            <option value="difícil">Difícil</option>
+                        </select>
+                    </div>
+                    <button onclick="filterTasks()" id="filterBtn">Filtrar</button>
+                </div>
             </div>
-            
-            <button class="confirm-btn" onclick="salvarTask()">Confirmar</button>
         </div>
     </div>
     
