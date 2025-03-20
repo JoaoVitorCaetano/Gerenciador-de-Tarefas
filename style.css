@@ -285,6 +285,7 @@ button i {
 
 .filter-container i {
     cursor: pointer;
+    width: 20px;
 }
 
 .filter-container h2 {
