@@ -165,5 +165,30 @@ function filterTasks() {
             }   
         });
     }
+    
+    const filterDateInput = document.querySelector("#data-filter");
+    const filteredTasks = document.querySelectorAll('.tasks[style*="display: flex"]');
+
+    if (filterDateInput.value) {
+        const filterDate = new Date(filterDateInput.value + "T00:00:00");
+        const dataFormatada = filterDate.toLocaleDateString("pt-BR", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
+        })
+        const filterDateFormatada = dataFormatada
+
+        filteredTasks.forEach(task => {
+            const dateSpan = task.querySelector(".date-badge").innerHTML;
+            const isCompleted = task.classList.contains("done");
+            if (dateSpan && !isCompleted) {
+                if (dateSpan >= dataAtual && dateSpan <= filterDateFormatada) {
+                    task.style.display = "flex";
+                } else {
+                    task.style.display = "none";
+                }
+            }
+        });
+    }
 
 }
