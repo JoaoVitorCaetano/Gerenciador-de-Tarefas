@@ -13,6 +13,7 @@ const addFilterBtn = document.querySelector("#filterBtn")
 const filterDificuldade = document.querySelector("#dificuldade-filter")
 const closeFilterBtn = document.querySelector("#closeFilterBtn")
 
+//Obtém a data atual e exibe na interface
 const date = new Date()
 const dataAtual = date.toLocaleDateString("pt-BR", {
     day: "2-digit",
@@ -21,6 +22,7 @@ const dataAtual = date.toLocaleDateString("pt-BR", {
 })
 Data.innerHTML = `Data Atual: ${dataAtual}`
 
+//Função para salvar uma nova tarefa
 function salvarTask() {
     
     if (taskInput.value.length == 0) {
@@ -61,6 +63,7 @@ function salvarTask() {
                 taskTitle.appendChild(dateSpan)
         }
 
+        //Processa a dificuldade da tarefa
         const selectedDifficulty = select.value;
 
         if (selectedDifficulty) {
@@ -105,6 +108,7 @@ function salvarTask() {
     }
 }
 
+//Evento para capturar cliques e executar as funçoes de remover/concluir tarefas
 document.addEventListener('click', (e) => {
     const elementoClicado = e.target
     const paiDoElemento = elementoClicado.closest('div')
@@ -120,6 +124,7 @@ document.addEventListener('click', (e) => {
     }
 })
 
+//Exibe o popup de adicionar uma nova tarefa
 addTaskBtn.addEventListener('click', function() {
     
     if (taskInput.value.length == 0) {
@@ -133,6 +138,7 @@ addTaskBtn.addEventListener('click', function() {
 })
 
 
+//Exibe o popup de filtros
 filterBtn.addEventListener('click', function() {
     filterPopup.style.display = "flex"
 })
@@ -141,6 +147,7 @@ closeFilterBtn.addEventListener('click', function() {
     filterPopup.style.display = "none"
 })
 
+//Função para filtrar tarefas por dificuldade e data
 function filterTasks() {
     const tasks = document.querySelectorAll(".tasks");
 
