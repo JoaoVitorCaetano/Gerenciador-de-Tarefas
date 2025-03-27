@@ -151,7 +151,9 @@ closeFilterBtn.addEventListener('click', function() {
 function filterTasks() {
     const tasks = document.querySelectorAll(".tasks");
 
+    //Filtro inicial por dificulade
     if(filterDificuldade.value === "Todas"){
+        //Itera sobre os elementos tasks e tornam eles todos visíveis
         tasks.forEach(task => {
             task.style.display = "flex";
         });
@@ -159,6 +161,7 @@ function filterTasks() {
     } else{
         tasks.forEach(task => {
             const difficultySpan = task.querySelector(".difficulty-badge");
+            //somente filtrará pelos elementos não concluidos
             const isCompleted = task.classList.contains("done");
             
             if (difficultySpan && !isCompleted) {
@@ -174,9 +177,14 @@ function filterTasks() {
     }
     
     const filterDateInput = document.querySelector("#data-filter");
+    //Define os elementos que vão ser filtrados pelo filtro data como somente aqules que passaram no filtro dificuldade. 
+    //P.S: O filtro data também funciona quando somente a data é selecionada, já que todos os elementos por natureza ao não escolher
+    //a dificulade filtrada, ficam com display flex.
     const filteredTasks = document.querySelectorAll('.tasks[style*="display: flex"]');
 
+    //Filtro por data 
     if (filterDateInput.value) {
+        //formatação da data do filtro
         const filterDate = new Date(filterDateInput.value + "T00:00:00");
         const dataFormatada = filterDate.toLocaleDateString("pt-BR", {
             day: "2-digit",
@@ -187,6 +195,7 @@ function filterTasks() {
 
         filteredTasks.forEach(task => {
             const dateSpan = task.querySelector(".date-badge").innerHTML;
+            //redundância do isCompleated somente acontece devido a necessidade de ambos funcionarem independentemente.
             const isCompleted = task.classList.contains("done");
             if (dateSpan && !isCompleted) {
                 if (dateSpan >= dataAtual && dateSpan <= filterDateFormatada) {
