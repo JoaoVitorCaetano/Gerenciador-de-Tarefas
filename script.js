@@ -82,6 +82,10 @@ function salvarTask() {
             difficultySpan.innerText = selectedDifficulty; 
             tasks.appendChild(difficultySpan);
         }
+        else{
+            alert("Selecione uma dificuldade!")
+            return;
+        }
 
 
         const doneBtn = document.createElement("button");
@@ -157,7 +161,6 @@ function filterTasks() {
         tasks.forEach(task => {
             task.style.display = "flex";
         });
-        return;
     } else{
         tasks.forEach(task => {
             const difficultySpan = task.querySelector(".difficulty-badge");
@@ -181,7 +184,6 @@ function filterTasks() {
     //P.S: O filtro data também funciona quando somente a data é selecionada, já que todos os elementos por natureza ao não escolher
     //a dificulade filtrada, ficam com display flex.
     const filteredTasks = document.querySelectorAll('.tasks[style*="display: flex"]');
-
     //Filtro por data 
     if (filterDateInput.value) {
         //formatação da data do filtro
