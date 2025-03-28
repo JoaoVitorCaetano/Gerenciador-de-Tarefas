@@ -25,6 +25,16 @@ h1 {
     margin-left: auto;
 }
 
+.currentDate {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: -150px;
+    top: 100px;
+    color: rgb(75, 75, 75);
+    font-size: 17px;
+}
+
 section {
     background-color: white;
     border-radius: 10px;
@@ -56,6 +66,8 @@ section {
     height: 40px;
     border-radius: 20px;
     padding: 10px;
+    position: relative;
+    left: 20px;
 }
 
 .add-task i {
@@ -67,6 +79,14 @@ section {
 .add-task i:hover {
     color: #3c5274;
     transform: scale(1.1);
+}
+
+#filterTaskBtn {
+    margin-left: 20px;
+}
+
+#addTaskBtn {
+    margin-left: 15px;
 }
 
 
@@ -85,6 +105,7 @@ button {
 
 button:hover {
     background-color: #102f5e;
+    color: #fff;
 }
 
 button:hover > i {
@@ -116,7 +137,8 @@ button i {
 
 .tasks h3 {
     flex: 1;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 .tasks button {
@@ -144,15 +166,156 @@ button i {
     font-style: italic;
 }
 
-
-footer {
-    text-align: center;
-    margin-top: 200px;
-    color: #102f5e;
-    font-weight: bold;
-}
-
 #icon{
-    pointers-event: none;
+    pointer-events: none;
 }
-    
+
+
+.popup {
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.popup-container {
+    position: fixed; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    min-width: 300px;
+    z-index: 1000;
+}
+
+
+.popup-container h3 {
+    color: rgb(131, 131, 131);
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.dificult {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.dificult select {
+    width: 130px;
+    border-radius: 5px;
+    color: #021229;
+    border: solid 1px #021229;
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 25px;
+}
+
+#taskDate {
+    color: #021229;
+    border-radius: 5px;
+    border: solid 1px #021229;
+}
+
+.confirm-btn {
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.difficulty-badge {
+    font-size: 14px;
+    margin-left: 10px;
+    padding: 3px 6px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.difficulty-easy {
+    color: green;
+}
+
+.difficulty-medium {
+    color: orange;
+}
+
+.difficulty-hard {
+    color: red;
+}
+
+
+.date-badge {
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.filter-popup {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.397);
+    margin-top: 100px;
+    display: none;
+}
+
+.filter-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-container i {
+    cursor: pointer;
+    width: 20px;
+}
+
+.filter-container h2 {
+    color: rgb(131, 131, 131);
+    text-align: center;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+#dificuldade-filter {
+    position: relative;
+    top: -2px;
+}
+
+#dificuldade-filter {
+    width: 100px;
+    border-radius: 5px;
+    color: #021229;
+    border: solid 1px #021229;
+}
+
+#filterBtn {
+    height: 30px;
+}
+
